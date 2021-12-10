@@ -1,0 +1,19 @@
+---
+- name: Compress archives
+  hosts: localhost
+  
+  tasks:
+  
+  - name: "Get path details"
+    stat:
+     path: (PATH AS VARIABLE)
+    register: p
+    
+  - name: "Compress"
+    archive: 
+      path: (PATH AS VARIABLE)
+      dest: (DEST PATH FOR COMPRESS FILE)
+      format: (Choose file format like zip, log, txt, var)
+      mode: (Choose the mode, ready-only, execute, write)
+	  
+#USE 0777 TO ENABLE ALL PERMISSIONS 

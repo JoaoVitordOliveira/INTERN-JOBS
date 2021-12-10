@@ -1,0 +1,23 @@
+---
+- name: Multi-tasks in row
+  hosts: localhost
+   
+  tasks:
+  
+  - block: (Execute entire tasks in row)
+    
+	- name: First
+	  service: 
+	    name: httpd
+		state: started
+		
+	- name: Second
+	    service: httpd
+	    state: stopped
+		
+  - when: Action = "Restart"
+  
+  - name: Restart single task
+    service: 
+	   name: httpd
+	   state: restart

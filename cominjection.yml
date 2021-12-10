@@ -1,0 +1,16 @@
+---
+- name: Valid command Injection
+  hosts: localhost
+   
+  tasks:
+  
+  - name: "Command Injection security"
+    fail:
+     msg: "Error, try again later.. little hacker."
+    when: not(item|string|regex_search('^[A-Za-z0-9\\,\\.\\/\\_\\]+$'0)
+    with_items:
+     - "{{ firstvar }}"
+     - "{{ secondvar }}"
+     - "{{ threevar }}" 
+
+#VALID MULTI VARS TO AVOID COMMAND INJECTION 

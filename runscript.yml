@@ -1,0 +1,12 @@
+---
+- name: Execute a external BASH
+  hosts: localhost
+  
+  tasks:
+  
+  - name: Run script
+    script: bash.sh -msparameter "{{shparameter}}"
+	become: true 
+	
+#BECOME TRUE = Execute that sh with root privilege
+#TO DEFINE PARAMETERES USE: -device1(playbook var) "{{ device1 }}"(var on script)

@@ -1,0 +1,12 @@
+---
+- name: Register variables and shell commands LINUX
+  hosts: localhost
+  
+  tasks:
+  
+  - name: Execute a complex command on Linux Bash
+    shell: (command)
+    register: var_output
+	
+  - debug:
+      var or msg: resinfo.stdout_lines
